@@ -1,6 +1,26 @@
 // Public demo starter. The adapter is intentionally incomplete.
 // Implement the behavior described in ../task.md in your own clone or fork.
 
+const slugify = (name) =>
+  name
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+
+const toCents = (price) => Math.round(Number(price) * 100);
+
 export function migrateCatalog(_legacyCatalog) {
-  return [];
+  const items = _legacyCatalog?.items ?? [];
+
+  return items
+    .filter((item) => item.active === true)
+    .map((item) => ({
+      sku: item.legacySku,
+      name: item.name,
+      slug: slugify(item.name),
+      price_cents: toCents(item.price),
+      image_count: Array.isArray(item.imagePaths) ? item.imagePaths.length : 0
+    }))
+    .sort((a, b) => a.sku.localeCompare(b.sku));
 }

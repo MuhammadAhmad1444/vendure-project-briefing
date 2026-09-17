@@ -1,0 +1,13 @@
+{
+  "run_id": "20260917T135955Z-baseline",
+  "mode": "baseline",
+  "started_at": "2026-09-17T13:59:56.574Z",
+  "finished_at": "2026-09-17T13:59:56.574Z",
+  "source": "public-evaluation-demo",
+  "input": "evaluation-demo/app/fixtures/legacy-catalog.json",
+  "task": "evaluation-demo/task.md",
+  "command": "C:\\Program Files\\nodejs\\node.exe --test evaluation-demo/app/tests/acceptance.test.mjs",
+  "exit_code": 1,
+  "network_used": false,
+  "secrets_used": false
+}
